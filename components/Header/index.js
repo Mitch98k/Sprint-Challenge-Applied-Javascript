@@ -27,12 +27,12 @@ function Header() {
     Head.appendChild(Hone);
     Head.appendChild(Temp);
 
-    DAte.textContent = DAte;
-    Hone.textContent = Hone;
-    Temp.textContent = Temp;
+    DAte.textContent = 'span';
+    Hone.textContent = 'h1';
+    Temp.textContent = 'span';
 
     return Header
 }
 
  const contain = document.querySelector('.header-container')
- //contain.appendChild(Header());
+ contain.appendChild(Header());
