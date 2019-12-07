@@ -18,6 +18,7 @@
 //
 // Create a card for each of the articles and add the card to the DOM.
 function CardList(item) {
+    console.log(`this is items: ${item}`);
     const TopofCard = document.createElement('div');
     const HeadLine = document.createElement('div');
     const Author = document.createElement('div');
@@ -25,16 +26,20 @@ function CardList(item) {
     const imgOfAuthor = document.createElement('img');
     const AuthorName = document.createElement('span');
 
-    TopofCard.classList('card');
-    HeadLine.classList('headline');
-    Author.classList('author');
-    imgContain.classList('img-container')
+    TopofCard.classList.add('card');
+    HeadLine.classList.add('headline');
+    Author.classList.add('author');
+    imgContain.classList.add('img-container')
 
     TopofCard.appendChild(HeadLine);
     TopofCard.appendChild(Author);
     Author.appendChild(imgContain);
     Author.appendChild(AuthorName);
     imgContain.appendChild(imgOfAuthor);
+
+    AuthorName.textContent = item.authorName;
+    HeadLine.textContent = item.headline;
+    imgOfAuthor.src = item.authorPhoto;
 
     return TopofCard;
 }
@@ -43,9 +48,11 @@ axios
 .get('https://lambda-times-backend.herokuapp.com/articles')
 .then(response => {
     console.log(response);
-    for (const theCards in response.data.articles) {
-        console.log(`${theCards}: ${response.data.articles[theCards]}`).forEach(item => {
-            const newCard = Tab(item);
+    let Articles = response.data.articles;
+    for (const theCards2 in Articles) {
+        console.log(`${theCards2}: ${Articles[theCards2]}`)
+        Articles[theCards2].forEach(item => {
+            const newCard = CardList(item);
             theCards.appendChild(newCard);
         });
     }
