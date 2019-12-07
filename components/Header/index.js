@@ -27,11 +27,11 @@ function Header() {
     Head.appendChild(Hone);
     Head.appendChild(Temp);
 
-    DAte.textContent = 'span';
-    Hone.textContent = 'h1';
-    Temp.textContent = 'span';
+    DAte.textContent = 'SMARCH 28, 2019';
+    Hone.textContent = 'Lambda Times';
+    Temp.textContent = '98°';
 
-    return Header
+    return Head
 }
 
  const contain = document.querySelector('.header-container')
